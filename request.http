@@ -1,0 +1,168 @@
+###create new cart when user register https://bookstore360.herokuapp.com/
+POST http://localhost:4000/cart/
+Content-Type: application/json
+
+{
+  "userId": "61d0915216536a36880c68fd",
+  "products": []
+}
+
+###get user cart
+# GET https://bookstore360.herokuapp.com/cart/61d0915216536a36880c68fd
+GET http://localhost:4000/cart/61d0915216536a36880c68fd
+Content-Type: application/json
+
+
+###update cart
+PUT https://bookstore360.herokuapp.com/cart/61d1b2202794ef09036ab870
+Content-Type: application/json
+
+{
+  "products": [
+    {
+      "productId": "619b983a89c63088d5eb9d90",
+      "productImg": "https://cdn0.fahasa.com/media/catalog/product/cache/1/small_image/600x600/9df78eab33525d08d6e5fb8d27136e95/i/m/image_195509_1_40337.jpg",
+      "productName":  "Tan Quoc",
+      "productPrice": 230000,
+      "productDiscount":  35,
+      "quantity": 2
+    }
+  ]
+}
+
+###delete user cart
+DELETE http://localhost:4000/cart/61a0b118c4b5a4c7f34aa251
+Content-Type: application/json
+
+
+#############################################################################################################################
+
+
+###create new order
+POST http://localhost:4000/orders/
+Content-Type: application/json
+
+{
+  "userId": "61a64e2b60d86d1d34eb50e9",
+  "userName": "Hồng Duy",
+  "products": [
+    {
+      "productId": "61a1154664e271d3957520ab",
+      "productName": "Bước Đi Ngẫu Nhiên Trên Phố Wall",
+      "productImg": "https://cdn0.fahasa.com/media/catalog/product/cache/1/small_image/600x600/9df78eab33525d08d6e5fb8d27136e95/i/m/image_234131.jpg",
+      "price": 220000,
+      "quantity": 1
+    },
+    {
+      "productId": "61a1166464e271d3957520b4",
+      "productName": "Tuổi Trẻ Đáng Giá Bao Nhiêu",
+      "productImg": "https://cdn0.fahasa.com/media/catalog/product/cache/1/small_image/600x600/9df78eab33525d08d6e5fb8d27136e95/i/m/image_239651.jpg",
+      "price": 220000,
+      "quantity": 2
+    },
+    {
+      "productId": "61a119d064e271d3957520ef",
+      "productName": "Stephen Hawking: Một Trí Tuệ Không Giới Hạn",
+      "productImg": "https://cdn0.fahasa.com/media/catalog/product/cache/1/small_image/600x600/9df78eab33525d08d6e5fb8d27136e95/b/_/b_a-chu_n-_1_.jpg",
+      "price": 220000,
+      "quantity": 1
+    }
+  ],
+  "amount": 4,
+  "totalPrice": 330000,
+  "address": "14 Nguyễn Trãi, Hải Châu, Đà Nẵng",
+  "phone": "036157894"
+}
+
+###get all order for admin
+GET http://localhost:4000/dashboard/orders/
+Content-Type: application/json
+
+
+###get all user order 
+GET https://bookstore360.herokuapp.com/orders/user/61d2baf213cda25ed3b505d7
+Content-Type: application/json
+
+###get one order 
+GET http://localhost:4000/orders/61a392775a20b6945821125a
+Content-Type: application/json
+
+###change status order
+PUT http://localhost:4000/dashboard/orders/61a392775a20b6945821125a
+Content-Type: application/json
+
+{
+  "status": "waiting"
+}
+
+
+#############################################################################################################################
+
+### Get all user for admin https://bookstore360.herokuapp.com/dashboard/users/ 
+GET http://localhost:4000/dashboard/users/ 
+Content-Type: application/json
+
+### user register 
+POST https://bookstore360.herokuapp.com/auth/register 
+Content-Type: application/json
+
+{
+  "phone": "036157894",
+  "address": "14 Nguyễn Trãi, Hải Châu, Đà Nẵng",
+  "password": "123456",
+  "username": "test7",
+  "name": "Dead line"
+}
+
+### user login https://bookstore360.herokuapp.com/auth/login
+POST  https://bookstore360.herokuapp.com/auth/login
+Content-Type: application/json
+
+{
+  "username": "hongduy",
+  "password": "123456"
+}
+
+###update - change infor user - for user
+PUT http://localhost:4000/auth/update/61d2f24ea3dd76787a1f6137
+Content-Type: application/json
+
+{
+  "phone": "09237959"
+}
+
+###Delete user
+DELETE http://localhost:4000/dashboard/users/61a6e8ef5dd4973ad67aa982
+Content-Type: application/json
+
+
+#############################################################################################################################
+
+##Get all product
+GET http://localhost:4000/dashboard/product
+Content-Type: application/json
+
+### add new product for Admin
+POST http://localhost:4000/dashboard/products/post
+Content-Type: application/json
+
+
+###Update product for ADMIN
+PUT http://localhost:4000/dashboard/products/update/61990aafa51279f060cc997b
+Content-Type: application/json
+
+
+###Get product by category
+GET http://localhost:4000/dashboard/get?category=giao-khoa
+Content-Type: application/json
+
+
+###Find product by Id
+GET http://localhost:4000/dashboard/product/619b983a89c63088d5eb9d90
+Content-Type: application/json
+
+###https://bookstore360.herokuapp.com/
+
+##Get product trending
+GET http://localhost:4000/dashboard/product/trending
+Content-Type: application/json
